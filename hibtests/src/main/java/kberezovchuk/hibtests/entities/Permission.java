@@ -12,8 +12,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -23,13 +21,12 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.validator.constraints.NotEmpty;
 
 
 
 
 @Entity
-@Table(name = "permissions", schema = "api")
+@Table(name = "permissions", schema = "myschema")
 @Getter
 @Setter
 public class Permission implements Serializable {
@@ -42,7 +39,7 @@ public class Permission implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "permissions_id_seq")
-    @SequenceGenerator(name = "permissions_id_seq", sequenceName = "api.permissions_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "permissions_id_seq", sequenceName = "myschema.permissions_id_seq", allocationSize = 1)
     @Column(name = "id", unique = true, nullable = false, updatable = false)
     private Integer id;
 
